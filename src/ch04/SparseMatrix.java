@@ -59,6 +59,7 @@ public class SparseMatrix {
     }
 
     //矩阵转置算法
+    /**转置无变化*/
     public SparseMatrix transpose(){
         SparseMatrix tm = new SparseMatrix(nums);
         tm.cols = rows; //行数列数互换
@@ -68,8 +69,8 @@ public class SparseMatrix {
         for (int col=0; col<cols; col++){
             for (int p=0; p<nums; p++){
                 if (data[p].column == col){
-                    tm.data[q].column = data[p].row;
                     tm.data[q].row = data[p].column;
+                    tm.data[q].column = data[p].row;
                     tm.data[q].value = data[q].value;
                     q++;
                 }
