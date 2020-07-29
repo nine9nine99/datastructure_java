@@ -27,7 +27,6 @@ public class BiTreeNode {
         this.lchild = lchild;
     }
 
-
     public BiTreeNode getLchild(){
         return lchild;
     }

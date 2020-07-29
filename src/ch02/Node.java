@@ -1,8 +1,8 @@
 package ch02;
 
-public class Node {
+public class Node<E> {
     public Object data;//存放节点值
-    public Node next;//后续节点的引用
+    public Node<E> next;//后续节点的引用
     //无参构造体
     public Node(){
         this.data = null;
@@ -13,7 +13,7 @@ public class Node {
         this.data = data;
         this.next = null;
     }
-    public Node(Object data, Node next){
+    public Node(Object data, Node<E> next){
         this.data = data;
         this.next = next;
     }

@@ -1,12 +1,14 @@
-package ch02;
-import ch02.IList;
+package ch09;
+
+import ch09.IList;
+
 import java.util.Scanner;
 
 public class LinkList implements IList {
-    public Node head;
+    public Node_Hash head;
 
     public LinkList(){
-        head = new Node();
+        head = new Node_Hash();
     }
 
     public LinkList(int n, boolean Order) throws Exception{
@@ -44,7 +46,7 @@ public class LinkList implements IList {
 
     //求带头节点的单链表的长度
     public int length(){
-        Node p = head.next;//初始化，p指向首节点
+        Node_Hash p = head.next;//初始化，p指向首节点
         int length = 0;
         while(p != null){
             p = p.next;
@@ -55,7 +57,7 @@ public class LinkList implements IList {
     //按位序号查找
     @Override
     public Object get(int i) throws Exception {
-        Node p = head.next;
+        Node_Hash p = head.next;
         int j = 0;
         while (p != null && j<i){//从首届点开始先后查找，直到p指向第i个节点或p为空
             p = p.next;
@@ -68,8 +70,8 @@ public class LinkList implements IList {
     }
 
     @Override
-    public void insert(int i, Object x) throws Exception {
-        Node p = head;
+    public void insert(int i, String x) throws Exception {
+        Node_Hash p = head;
         int j = -1;
         while (p != null && j<i-1){
             p = p.next;
@@ -77,7 +79,7 @@ public class LinkList implements IList {
         }
         if (j > i-1 || p ==null)
             throw new Exception("插入的位置不合法");
-        Node s = new Node(x);
+        Node_Hash s = new Node_Hash(x);
         s.next = p.next;
         p.next = s;
 
@@ -85,7 +87,7 @@ public class LinkList implements IList {
 
     @Override
     public void remove(int i) throws Exception {
-        Node p = head;
+        Node_Hash p = head;
         int j = -1;
         while (p.next != null && j<i-1){
             p = p.next;
@@ -99,8 +101,8 @@ public class LinkList implements IList {
 
     //按值查找
     @Override
-    public int indexOf(Object x) {
-        Node p = head.next;//初始化，p指向首节点，j为计数器
+    public int indexOf(String x) {
+        Node_Hash p = head.next;//初始化，p指向首节点，j为计数器
         int j = 0;
         //按值查询，直到p.data为x
         while (p != null && !p.data.equals(x)){
@@ -114,7 +116,7 @@ public class LinkList implements IList {
     }
 
     public void display(){
-        Node node = head.next;
+        Node_Hash node = head.next;
         while (node != null){
             System.out.print(node.data + "");
             node = node.next;
